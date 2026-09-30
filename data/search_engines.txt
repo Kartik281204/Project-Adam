@@ -1,0 +1,2 @@
+How Search Engines Work
+A search engine collects pages with a crawler, cleans the text, and builds an index. The index maps every word to the documents that contain it, so a search can be answered quickly. Ranking algorithms such as BM25 then sort the results so the most relevant pages appear first.

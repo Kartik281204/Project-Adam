@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}MiniSearch{% endblock %}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 0 auto; padding: 1rem; line-height: 1.5; color: #222; }
+    header { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #ddd; padding-bottom: 1rem; }
+    .logo { font-weight: 700; font-size: 1.3rem; text-decoration: none; color: #1a56db; }
+    form { display: flex; gap: .5rem; flex: 1; }
+    input[type=text] { flex: 1; padding: .5rem; font-size: 1rem; }
+    select, button { padding: .5rem; font-size: 1rem; }
+    article { margin: 1.5rem 0; }
+    article h3 { margin: 0; }
+    .source { color: #2f7d32; font-size: .85rem; }
+    .meta { color: #666; }
+    mark { background: #fff3a3; }
+    pre { white-space: pre-wrap; font-family: inherit; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="{{ url_for('home') }}">MiniSearch</a>
+    <form action="{{ url_for('search_page') }}" method="get">
+      <input type="text" name="q" value="{{ query | default('') }}" placeholder="Search..." autofocus>
+      <select name="mode">
+        <option value="and" {% if mode | default('and') == 'and' %}selected{% endif %}>all words</option>
+        <option value="or" {% if mode | default('and') == 'or' %}selected{% endif %}>any word</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Search {{ stats.documents }} documents</h1>
+  <p class="meta">{{ stats.terms }} unique words are in the index. Try <em>python beginners</em>,
+     <em>snakes</em>, or <em>learning -python</em> (a minus sign excludes a word).</p>
+{% endblock %}

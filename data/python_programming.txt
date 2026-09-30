@@ -1,0 +1,2 @@
+Python Programming for Beginners
+Python is a popular programming language that is easy to read and easy to learn. Beginners use Python to build websites, analyse data and write small games. Python has a large standard library, so many common tasks need only a few lines of code. Learning Python is a great first step towards machine learning.

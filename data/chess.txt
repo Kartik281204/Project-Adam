@@ -1,0 +1,2 @@
+Chess Strategy for Beginners
+Chess is a board game for two players. Beginners should learn to control the centre, develop their pieces early and protect the king. Learning basic tactics, such as forks and pins, helps players win material. Many players use Python programs to analyse their games.

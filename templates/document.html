@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}{{ document.title }} - MiniSearch{% endblock %}
+
+{% block content %}
+  <h1>{{ document.title }}</h1>
+  <p class="meta">{{ doc_id }}</p>
+  <pre>{{ document.text }}</pre>
+{% endblock %}

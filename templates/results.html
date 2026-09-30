@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ query }} - MiniSearch{% endblock %}
+
+{% block content %}
+  {% if not response %}
+    <p class="meta">Type something to search.</p>
+  {% elif response.total == 0 %}
+    <p>No results for <strong>{{ query }}</strong>. Try fewer words, or switch to "any word".</p>
+  {% else %}
+    <p class="meta">{{ response.total }} result{{ "" if response.total == 1 else "s" }} for <strong>{{ query }}</strong></p>
+    {% for r in response.results %}
+      <article>
+        <h3>
+          {% if r.url %}
+            <a href="{{ r.url }}">{{ r.title }}</a>
+          {% else %}
+            <a href="{{ url_for('view_document', doc_id=r.doc_id) }}">{{ r.title }}</a>
+          {% endif %}
+        </h3>
+        <div class="source">{{ r.url or r.doc_id }} &middot; score {{ "%.3f" | format(r.score) }}</div>
+        <p>{% for piece, is_match in r.parts %}{% if is_match %}<mark>{{ piece }}</mark>{% else %}{{ piece }}{% endif %}{% endfor %}</p>
+      </article>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
